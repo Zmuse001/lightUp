@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		    html,body{
+		       height:98%;
+		       width:99%;
+		    }
+		    #container{
+		        display:flex;
+		        flex-wrap: wrap;
+		        height:100%;
+		    }
+		    div div{
+		        width:32%;
+		        border: 1px solid black;
+		    }
+            .active{
+                background-color: yellow
+            }
+		</style>
+	</head>
+
+	<body>
+    	<div id = container>
+            <div></div>
+            <div id = "top"></div>
+            <div></div>
+            <div id="left"></div>
+            <div></div>
+            <div id = "right"></div>
+            <div></div>
+            <div id = "bottom"></div>
+            <div></div>
+        </div>
+        
+        <script>
+
+            //Write your colorDown function here
+            var up = document.getElementById("top");
+            var left = document.getElementById("left");
+            var down = document.getElementById("bottom");
+            var right = document.getElementById("right");
+
+            document.body.addEventListener("keydown", colorDown);
+            //create a new function using getAttribute, setAttribute and remove Attribute
+            //Inside will be an if statement
+            //function name = ?
+            //
+            function colorDown(event){
+                if(event.key == "ArrowUp"){
+                    addActive("top");
+                }else if(event.key == "ArrowRight"){
+                    addActive("right");
+                }else if(event.key == "ArrowLeft"){
+                    addActive("left");
+                }else if(event.key == "ArrowDown"){
+                    addActive("bottom");
+                }
+            }
+
+            function addActive(divId){
+                var box = document.getElementById(divId);
+                if(box.getAttribute("class") == "active"){
+                    box.removeAttribute("class");
+                }else{
+                    box.setAttribute("class", "active");
+                }
+            }
+        </script>
+	</body>
+</html>
